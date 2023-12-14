@@ -11,14 +11,14 @@
 ## Roadmap
 
 - 第一部分：引言和基础知识
-  - 引言
+  - [引言](https://github.com/datawhalechina/what-is-vs/blob/8146b100f087f5ca9a86588c2397a17f3c7cfb5b/docs/chapter1/introduction.md)
     - 什么是向量检索
     - 为什么向量检索重要
     - 教程目标和读者指南
-  - 向量检索的历史和发展
+  - [向量检索的历史和发展](https://github.com/datawhalechina/what-is-vs/blob/8146b100f087f5ca9a86588c2397a17f3c7cfb5b/docs/chapter1/history.md)
     - 早期的信息检索方法
     - 从传统检索到向量检索的演进
-  - 基本概念
+  - [基本概念](https://github.com/datawhalechina/what-is-vs/blob/8146b100f087f5ca9a86588c2397a17f3c7cfb5b/docs/chapter1/basic.md)
     - 向量空间和维度
     - 向量化的数据表示
     - 相似性度量基础
