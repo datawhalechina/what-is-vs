@@ -60,7 +60,7 @@
     - 数据隐私和安全问题
     - 行业发展趋势和未来应用场景
 
-- [结语](https://github.com/datawhalechina/what-is-vs/blob/cd175ea064dd374fe7319d51969a033f9c5d601e/docs/summy.%2Cd)
+- [结语](https://github.com/datawhalechina/what-is-vs/blob/72433ca382b0df36cdc472f63b69f42a866d703a/docs/summy.md)
   - 总结
   - 附录：进一步阅读资源和工具列表
 
