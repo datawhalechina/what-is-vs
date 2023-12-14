@@ -10,7 +10,7 @@
 
 ## Roadmap
 
-- 第一部分：引言和基础知识 @SuperSupeng
+- 第一部分：引言和基础知识
   - 引言
     - 什么是向量检索
     - 为什么向量检索重要
@@ -24,26 +24,26 @@
     - 相似性度量基础
 
 - 第二部分：核心技术
-  - 向量化技术 @ljn-aaa
+  - 向量化技术
     - 非结构化数据
     - 非结构化数据向量化
   - 向量索引
-    - 向量索引概述 @BenjaminXiang
+    - 向量索引概述
       - 概述
       - 评估技术
-    - 基于量化的向量索引方法 @ljn-aaa
-    - 基于哈希的向量索引方法 @ljn-aaa
-    - 基于树的向量索引方法 @王泽宇
-    - 基于图的向量索引方法 @王泽宇
-    - 基于混合的向量索引方法 @ljn-aaa
-  - 混合查询 @whenever5225
-  - 向量索引优化策略 @BenjaminXiang @tianbing111
+    - 基于量化的向量索引方法
+    - 基于哈希的向量索引方法
+    - 基于树的向量索引方法
+    - 基于图的向量索引方法
+    - 基于混合的向量索引方法
+  - 混合查询
+  - 向量索引优化策略
     - 查询负载驱动的参数优化策略
     - 数据驱动的空间划分策略
     - 基于硬件加速的向量索引方法
 
 - 第三部分：系统实现与应用
-  - 向量数据库系统概述 @SuperSupeng
+  - 向量数据库系统概述
     - 向量数据库的基本构成与工作原理
     - 市面主流向量数据库系统比较
   - 案例研究
@@ -52,11 +52,11 @@
 
 - 第四部分：未来展望和挑战
   - 新兴技术趋势
-    - 神经网络与向量检索的结合（联合优化） @李剑楠
-    - Learned Index @王泽宇
-    - DB4LLM @YikunHan42
-    - RAG 架构初探 @YikunHan42
-  - 面临的挑战 @王泽宇 @ljn-aaa @tianbing111 @BenjaminXiang
+    - 神经网络与向量检索的结合（联合优化）
+    - Learned Index
+    - DB4LLM
+    - RAG 架构初探
+  - 面临的挑战
     - 数据隐私和安全问题
     - 行业发展趋势和未来应用场景
 
@@ -75,15 +75,15 @@
 
 | 姓名 | 职责 | 简介 |
 | :----| :---- | :---- |
-| [苏鹏](@SuperSupeng) | 项目负责人 | Datawhale成员 |
-| [李剑楠](@ljn-aaa) | 项目主要贡献者 | 华东师范大学硕士 |
-| [向隆](@BenjaminXiang) | 项目主要贡献者 | 南方科技大学博士 |
+| [苏鹏](https://github.com/SuperSupeng) | 项目负责人 | Datawhale成员 |
+| [李剑楠]((https://github.com/)ljn-aaa) | 项目主要贡献者 | 华东师范大学硕士 |
+| [向隆](https://github.com/BenjaminXiang) | 项目主要贡献者 | 南方科技大学博士 |
 | 王泽宇 | 项目主要贡献者 | 复旦大学博士 |
-| [王梦召](@whenever5225) | 项目主要贡献者 | 浙江大学博士 |
-| [田冰](@tianbing111) | 项目主要贡献者 | 华中科技大学博士 |
-| [韩颐堃](@YikunHan42) | 项目主要贡献者 |  |
+| [王梦召](https://github.com/whenever5225) | 项目主要贡献者 | 浙江大学博士 |
+| [田冰](https://github.com/tianbing111) | 项目主要贡献者 | 华中科技大学博士 |
+| [韩颐堃](https://github.com/YikunHan42) | 项目主要贡献者 |  |
 
-*注：表头可自定义，但必须在名单中标明项目负责人*
+分工请见：[立项申请（what-is-vs #184）](https://github.com/datawhalechina/DOPMC/issues/184)
 
 ## 关注我们
 
@@ -95,5 +95,3 @@
 ## LICENSE
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-lightgrey" /></a><br />本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。
-
-*注：默认使用CC 4.0协议，也可根据自身项目情况选用其他协议*
