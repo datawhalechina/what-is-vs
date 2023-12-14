@@ -24,39 +24,39 @@
     - 相似性度量基础
 
 - 第二部分：核心技术
-  - 向量化技术
+  - [向量化技术](https://github.com/datawhalechina/what-is-vs/blob/73458aed965c2b592992786b8754db9f5ea126af/docs/chapter2/embedding.md)
     - 非结构化数据
     - 非结构化数据向量化
-  - 向量索引
+  - [向量索引](https://github.com/datawhalechina/what-is-vs/blob/73458aed965c2b592992786b8754db9f5ea126af/docs/chapter2/index.md)
     - 向量索引概述
       - 概述
       - 评估技术
-    - 基于量化的向量索引方法
-    - 基于哈希的向量索引方法
-    - 基于树的向量索引方法
-    - 基于图的向量索引方法
-    - 基于混合的向量索引方法
-  - 混合查询
-  - 向量索引优化策略
+    - [基于量化的向量索引方法](https://github.com/datawhalechina/what-is-vs/blob/73458aed965c2b592992786b8754db9f5ea126af/docs/chapter2/pq-based-index.md)
+    - [基于哈希的向量索引方法](https://github.com/datawhalechina/what-is-vs/blob/73458aed965c2b592992786b8754db9f5ea126af/docs/chapter2/hash-based-index.md)
+    - [基于树的向量索引方法](https://github.com/datawhalechina/what-is-vs/blob/73458aed965c2b592992786b8754db9f5ea126af/docs/chapter2/tree-based-index.md)
+    - [基于图的向量索引方法](https://github.com/datawhalechina/what-is-vs/blob/73458aed965c2b592992786b8754db9f5ea126af/docs/chapter2/graph-based-index.md)
+    - [基于混合的向量索引方法](https://github.com/datawhalechina/what-is-vs/blob/73458aed965c2b592992786b8754db9f5ea126af/docs/chapter2/hybrid-index.md)
+  - [混合查询](https://github.com/datawhalechina/what-is-vs/blob/73458aed965c2b592992786b8754db9f5ea126af/docs/chapter2/hybrid-search.md)
+  - [向量索引优化策略](https://github.com/datawhalechina/what-is-vs/blob/73458aed965c2b592992786b8754db9f5ea126af/docs/chapter2/index-tuning.md)
     - 查询负载驱动的参数优化策略
     - 数据驱动的空间划分策略
     - 基于硬件加速的向量索引方法
 
 - 第三部分：系统实现与应用
-  - 向量数据库系统概述
+  - [向量数据库系统概述](https://github.com/datawhalechina/what-is-vs/blob/73458aed965c2b592992786b8754db9f5ea126af/docs/chapter3/system.md)
     - 向量数据库的基本构成与工作原理
     - 市面主流向量数据库系统比较
   - 案例研究
-    - 专有型向量数据库实践
-    - 拓展型向量数据库实践
+    - [专有型向量数据库实践](https://github.com/datawhalechina/what-is-vs/blob/73458aed965c2b592992786b8754db9f5ea126af/docs/chapter3/system-case-special.md)
+    - [拓展型向量数据库实践](https://github.com/datawhalechina/what-is-vs/blob/73458aed965c2b592992786b8754db9f5ea126af/docs/chapter3/system-case-expand.md)
 
 - 第四部分：未来展望和挑战
   - 新兴技术趋势
-    - 神经网络与向量检索的结合（联合优化）
-    - Learned Index
-    - DB4LLM
-    - RAG 架构初探
-  - 面临的挑战
+    - [神经网络与向量检索的结合](https://github.com/datawhalechina/what-is-vs/blob/73458aed965c2b592992786b8754db9f5ea126af/docs/chapter4/NN-index.md)
+    - [Learned Index](https://github.com/datawhalechina/what-is-vs/blob/73458aed965c2b592992786b8754db9f5ea126af/docs/chapter4/learned-index.md)
+    - [DB4LLM](https://github.com/datawhalechina/what-is-vs/blob/73458aed965c2b592992786b8754db9f5ea126af/docs/chapter4/DB4LLM.md)
+    - [RAG 架构初探](https://github.com/datawhalechina/what-is-vs/blob/73458aed965c2b592992786b8754db9f5ea126af/docs/chapter4/RAG.md)
+  - [面临的挑战](https://github.com/datawhalechina/what-is-vs/blob/73458aed965c2b592992786b8754db9f5ea126af/docs/chapter4/challenge.md)
     - 数据隐私和安全问题
     - 行业发展趋势和未来应用场景
 
