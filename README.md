@@ -1,5 +1,10 @@
 # What is Vector Search
 
+![DALL-E](./images/DALL-E.png)
+<div align=center>
+<p>Made by DALL·E</p>
+</div>
+
 本项目旨在创建一个全面、易于理解的向量检索教程，它将覆盖从基础理论到核心技术的各个方面。教程将通过详细的解释、实例和实践案例，帮助初学者、研究人员以及应用人员深入理解并有效地使用向量检索技术。
 
 ## 项目受众
