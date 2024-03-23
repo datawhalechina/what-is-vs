@@ -51,9 +51,7 @@
   - [向量数据库系统概述](./docs/chapter3/system.md)
     - 向量数据库的基本构成与工作原理
     - 市面主流向量数据库系统比较
-  - [案例研究](./docs/chapter3/case.md)
-    - [专有型向量数据库实践](./docs/chapter3/system-case-special.md)
-    - [拓展型向量数据库实践](./docs/chapter3/system-case-expand.md)
+  - [基于RAG的知识问答系统实战](./docs/chapter3/practice.md)
 
 - 第四部分：未来展望和挑战
   - [新兴技术趋势](./docs/chapter4/ternd.md)
