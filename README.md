@@ -81,7 +81,7 @@
 | [苏鹏](https://github.com/SuperSupeng) | 项目负责人 | Datawhale成员 |
 | [李剑楠]((https://github.com/)ljn-aaa) | 项目主要贡献者 | 华东师范大学硕士 |
 | [向隆](https://github.com/BenjaminXiang) | 项目主要贡献者 | 南方科技大学博士 |
-| 王泽宇 | 项目主要贡献者 | 复旦大学博士 |
+| [王泽宇](https://github.com/CaucherWang) | 项目主要贡献者 | 复旦大学博士 |
 | [王梦召](https://github.com/whenever5225) | 项目主要贡献者 | 浙江大学博士 |
 | [田冰](https://github.com/tianbing111) | 项目主要贡献者 | 华中科技大学博士 |
 | [韩颐堃](https://github.com/YikunHan42) | 项目主要贡献者 |  |
