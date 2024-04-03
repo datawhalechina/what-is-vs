@@ -7,6 +7,9 @@
 
 本项目旨在创建一个全面、易于理解的向量检索教程，它将覆盖从基础理论到核心技术的各个方面。教程将通过详细的解释、实例和实践案例，帮助初学者、研究人员以及应用人员深入理解并有效地使用向量检索技术。
 
+*下图是机器之心联合 Datawhale 和向量检索实验室一起出品的向量数据库知识图谱，让大家初步了解一下向量检索领域。*
+![向量数据库知识图谱](./images/vs-kg.jpg)
+
 ## 项目受众
 
 - 初学者，希望从基础了解向量检索。
@@ -20,13 +23,6 @@
     - 什么是向量检索
     - 为什么向量检索重要
     - 教程目标和读者指南
-  - [向量检索的历史和发展](./docs/chapter1/history.md)
-    - 早期的信息检索方法
-    - 从传统检索到向量检索的演进
-  - [基本概念](./docs/chapter1/basic.md)
-    - 向量空间和维度
-    - 向量化的数据表示
-    - 相似性度量基础
 
 - 第二部分：核心技术
   - [向量化技术](./docs/chapter2/embedding.md)
@@ -41,7 +37,15 @@
     - [基于树的向量索引方法](./docs/chapter2/tree-based-index.md)
     - [基于图的向量索引方法](./docs/chapter2/graph-based-index.md)
     - [基于混合的向量索引方法](./docs/chapter2/hybrid-index.md)
-  - [混合查询](./docs/chapter2/hybrid-search.md)
+  - [向量查询](./docs/chapter2/hybrid-search.md)
+    - 向量查询方法
+    - 向量查询方法概述
+    - k近邻查询
+    - 范围查询
+    - 混合查询
+    - 多向量查询
+    - 其它查询
+    - 查询优化
   - [向量索引优化策略](./docs/chapter2/index-tuning.md)
     - 查询负载驱动的参数优化策略
     - 数据驱动的空间划分策略
@@ -58,7 +62,6 @@
     - [神经网络与向量检索的结合](./docs/chapter4/NN-index.md)
     - [Learned Index](./docs/chapter4/learned-index.md)
     - [DB4LLM](./docs/chapter4/DB4LLM.md)
-    - [RAG 架构初探](./docs/chapter4/RAG.md)
   - [面临的挑战](./docs/chapter4/challenge.md)
     - 数据隐私和安全问题
     - 行业发展趋势和未来应用场景
