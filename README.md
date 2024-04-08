@@ -16,9 +16,9 @@
 - 相关领域的研究人员，需要了解最新技术和应用。
 - 应用人员，需要实际开发应用向量检索技术。
 
-## Roadmap
+## 目录
 
-- 第一部分：引言和基础知识
+- 第一部分：引言
   - [引言](./docs/chapter1/introduction.md)
     - 什么是向量检索
     - 为什么向量检索重要
@@ -37,8 +37,7 @@
     - [基于树的向量索引方法](./docs/chapter2/tree-based-index.md)
     - [基于图的向量索引方法](./docs/chapter2/graph-based-index.md)
     - [基于混合的向量索引方法](./docs/chapter2/hybrid-index.md)
-  - [向量查询](./docs/chapter2/hybrid-search.md)
-    - 向量查询方法
+  - [向量查询方法](./docs/chapter2/hybrid-search.md)
     - 向量查询方法概述
     - k近邻查询
     - 范围查询
@@ -46,16 +45,21 @@
     - 多向量查询
     - 其它查询
     - 查询优化
-  - [向量索引优化策略](./docs/chapter2/index-tuning.md)
-    - 查询负载驱动的参数优化策略
-    - 数据驱动的空间划分策略
-    - 基于硬件加速的向量索引方法
+  - [向量查询优化策略](./docs/chapter2/index-tuning.md)
+    - 算法层面
+    - 硬件层面
+      - CPU 多核架构
+      - GPU 架构
+      - FPGA 架构
+      - 近数据处理架构
 
 - 第三部分：系统实现与应用
   - [向量数据库系统概述](./docs/chapter3/system.md)
     - 向量数据库的基本构成与工作原理
     - 市面主流向量数据库系统比较
   - [基于RAG的知识问答系统实战](./docs/chapter3/practice.md)
+    - 基于Langchain的RAG基础实现
+    - 基于Ragas的RAG评价体系
 
 - 第四部分：未来展望和挑战
   - [新兴技术趋势](./docs/chapter4/ternd.md)
