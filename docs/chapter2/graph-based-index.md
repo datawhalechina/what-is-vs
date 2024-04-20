@@ -1,4 +1,4 @@
-### 2.2.5 基于图的向量索引方法
+### zaiben2.2.5 基于图的向量索引方法
 
 基于图的向量索引是目前向量数据库中使用最广泛，查询性能最高的索引类型之一。
 然而，图索引的发展历史并不如其他经典向量索引类型那样长。
@@ -13,7 +13,9 @@
 
 图索引的设计动机来自于小世界网络模型中的六度分隔理论。举一个通俗的例子，在人类社会的社交网络中（网络中的边为社交关系），从任何一个节点出发，在6步之内可以到达大部分网络中的节点。那么若以类似的方式将向量组织成网络（图），便可以从任意入口点出发，在较少步数内，到达查询点的最近邻。
 
-![toy-example](../../images/chap2/toy_example.png)
+<div align=center>
+<img src="../../images/chap2/toy_example.png"/>
+</div>
 <div align=center>
 <p>图2.1 图索引的一个例子</p>
 </div>
@@ -48,7 +50,9 @@ KNN图通常认为是Delaunay图的一种近似，而Delaunay图可以保证使�
 
 若两个锚点的Voronoi网格是相连的，在Delaunay图上会为这个两个锚点之间连边。注意到，在几何上，若两个锚点之间直线相连，得到的边将“垂直平分”两个Voronoi网格的边界。直观上说，在Delaunay图上，节点会连接在各个方向上和自己最靠近的点作为邻居。因次，在KNN图中，节点通过连接和自己距离最近的固定K个邻居来模拟近似Delaunay图。
 
-![delauney](../../images/chap2/delauney.png)
+<div align=center>
+<img src="../../images/chap2/delauney.png"/>
+</div>
 
 <div align=center>
 <p>图2.2 Delaunay图与KNN图</p>
@@ -97,7 +101,9 @@ approx_kNN_Graph_Search(图 G, 查询点 q, 入口点 ep, 参数k, L)
 > 返回C中前k项中的点。
 ```
 
-<img src="../../images/chap2/local-optimum.png" alt="local-optimum" style="zoom:67%;" />
+<div align=center>
+<img src="../../images/chap2/local-optimum.png" style="zoom:67%;"/>
+</div>
 
 <div align=center>
 <p>图2.3 图索引算法查询时的局部最优解</p>
@@ -152,7 +158,9 @@ NN-descent算法的核心思想可以由一句话概括：”我邻居的邻居�
 
 小世界网络模型研究的问题就是如何在图中加一些更长的边（即，两点之间距离较远）使得贪婪算法能够更快的找到终点（即，搜索路径更短）。这个问题在通讯、社交网络等领域中有着广泛的应用价值。
 
-![image-20240405183014616](C:\Users\64451\Desktop\what-is-vs\images\chap2\small-world.png)
+<div align=center>
+<img src="../../images/chap2/small-world.png" />
+</div>
 
 <div align=center>
 <p>图2.4 二维晶格图上的小世界网络模型</p>
@@ -183,8 +191,9 @@ NSW是一个无向图，它是通过逐个插入数据点的方式构件图结�
 换句话说，NSW的图结构和数据插入顺序关系非常密切，不同的插入顺序将带来截然不同的连接方式。因此，通常在索引构建之前随机排列数据集。实验表明，随机排列后的不同插入顺序带来的平均查询性能是非常接近的。
 
 
-
-<img src="../../images/chap2/nsw.png" alt="image-20240405213149928" style="zoom:50%;" />
+<div align=center>
+<img src="../../images/chap2/nsw.png" style="zoom:50%;"/>
+</div>
 
 <div align=center>
 <p>图2.5 NSW的节点邻居构成</p>
@@ -208,7 +217,9 @@ HNSW是NSW的一个改进版，引入了层次化的索引结构。在本节中�
 
 和NSW相同，HNSW也是通过逐个插入点的方式来构建图索引，也通过在已插入数据上通过贪婪搜索找$k$NN的方式位图赋边。与NSW不同的是，HNSW是有向图，且限制每个点的出度最大为$2M$（$M$是用户定义的参数）。为了满足这一条件，需要合理分配出度槽位。具体来说，HNSW在插入点时只为这个点填充$M$个最近邻，而留下另$M$个空位。尽管HNSW是有向图，但在插入点并为之赋边时，赋予双向边。若邻居的出度本来不足$2M$，则可以直接添加边，否则就需要启动裁边策略，从$2M+1$个邻居中筛选至多$2M$个邻居。
 
-<img src="../../images/chap2/mrng.png" alt="image-20240405224337339" style="zoom:67%;" />
+<div align=center>
+<img src="../../images/chap2/mrng.png" style="zoom:67%;" />
+</div>
 
 <div align=center>
 <p>图2.6 (a) RNG (b) MRNG</p>
@@ -228,8 +239,9 @@ MRNG将RNG改造为有向图，并弱化了边的排斥条件，引入了更多�
 
 在HNSW中，引入了MRNG的裁边策略。在实现中，给定当前点$p$，将所有候选点按照与$p$的距离从近及远排序。当检验某一候选点$r$时，查看是否存在某一个已插入边的候选点$q$，使得$\delta(p,r)>\delta(q,r)$。若存在，则跳过$r$；否则插入边（$p$，$r$）。若$2M$个槽位已满，则终止插入。通过这种方式，HNSW在图的稀疏性和导航性之间做出了权衡。具体来说，通过限制最大出度，保证了稀疏性；通过KNN图，长连接引入和MRNG裁边策略，期望获得导航性。
 
-<img src="../../images/chap2/hnsw.png" alt="image-20240405233950459" style="zoom:50%;" />
-
+<div align=center>
+<img src="../../images/chap2/hnsw.png" style="zoom:50%;" />
+</div>
 
 
 <div align=center>
