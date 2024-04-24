@@ -1,42 +1,80 @@
 ## 4.2 向量数据库面临的挑战
 
+截止目前，向量数据库在国内外仍处于发展的早期阶段，其稳定性、效率和应用场景正在实践中不断探索。
 
-
-### 动态数据集
-
-Highly concurrent vector search with addition and deletion. Most existing vector search systems build
-indices offline and become read-only once deployed. In some applications, data capture may occur more
-frequently than query processing, or the application may need to index continuous data streams while serving
-query requests. In these cases, the index organization should be optimized for addition and update in addition to
-query performance. The complexity arises with concurrent read and update operations (e.g., addition, deletion), as
-it is challenging to achieve both correctness and speed simultaneously. Concurrent updates and reads can lead to
-data races, making it difficult to ensure correctness on shared-memory architectures. Lock-based synchronization
-33can be used to coordinate access to shared-memory data, but while using one lock for the entire index simplifies
-reasoning about correctness, it also leads to serialized execution, severely impacting scalability. Another solution
-is to use fine-grained locking, where multiple locks are associated with the index. However, fine-grained locking
-increases the complexity of operations that access shared data, leading to issues such as deadlock, atomicity
-violation, and high locking overhead. The research opportunity here is: Build a highly concurrent vector search
-system that supports robust addition and deletion with high search efficiency.
-
-### 索引构建自动化
-
-Automating index construction for vector search. Several advances have been made in support of largescale vector search, introducing novel algorithms and system optimizations [ 15, 51, 55, 66]. However, applying
-these methods to large-scale datasets still requires a significant amount of engineering effort specific to the data,
-hardware environment, and performance objectives. For instance, deploying a large dataset to a given cloud VM
-requires a careful selection of vector search indices, with NVMe/SSD/remote storage, the number of cores to
-use, and multiple index-specific parameters. Correctly choosing the algorithm and tuning the parameters can
-deliver significant improvements in search performance but also depend on strong system expertise. Therefore,
-automating the selection and construction of vector search indices would help alleviate the burden on deployment
-engineers, but it also requires navigating a complex space of choices that grows exponentially with different
-algorithm choices, each with its own trade-offs, and data sizes and hardware resources. The research opportunity
-here is: Build a framework and optimization algorithm that automatically finds the optimal index construction
-strategy for a given dataset to deliver fast search speed with low cost.
+本节列举了目前向量数据库面临的主要挑战和未来发展趋势。
 
 
 
-### 基于硬件的加速
+### 4.2.1 向量标量混合查询
+
+@梦召？
+
+
+
+### 4.2.2 海量数据索引支持
+
+@向隆？
+
+
+
+### 4.2.3 动态数据集
+
+经典的关系型数据库管理系统有四项基本操作：增、删、改、查。目前，向量数据库可以完成高效的查询（最近邻搜索），部分向量索引可以支持动态插入，对于数据的删除、修改，则大部分向量索引难以支持。然而，在实际应用场景中，对动态数据集的支持是一个基本需求。例如，在一个服务于电商平台的推荐系统中，一个商品的上架和下架就会涉及这个商品对应向量在数据库中的插入和删除；商品描述和详情的修改又会涉及向量的修改。
+
+
+
+在向量数据库中高效处理动态数据集至少包含以下几个技术挑战：
+
+1. 向量索引的更新。大部分向量索引需要根据数据集中的数据分布决定索引结构，而处理动态数据集要求索引能够自适应地根据数据分布的变化调整索引的结构。比如，随着新数据的插入，树索引需要细化分区，增加或重新选择空间分割方式（平面）；而数据的删除意味着需要分区的合并或分割方式的重新选择。对于图索引来说，插入和删除都意味着图中拓扑结构的调整，既要保证新增加的连接（边）不会影响图的稀疏性以保证查询效率，又要保证删除旧有的边不会让图索引的导航性受到影响。此外，由于图数据访问方式的复杂性，图索引的更新比其它索引更加困难。
+2. 向量数据存储的更新。相比于标量数据，向量数据单条数据占据空间更大。因此，频繁的删除会使得存储空间更大的碎片化。此外，为了提高向量数据的访问效率，向量数据往往会分区存储以利用数据局部性（尤其是对于磁盘数据），同一分区的数据共同访问的概率更高。数据的更新可能破坏原有分区的平衡性，导致查询效率的降低。
+3. 读写操作的并发控制。对向量索引的数据更新往往会引起索引结构以及其它数据存放位置的变化，相比于标量索引（如B+树），数据更新时，需要锁的范围会更大。因此，如何高效处理对于向量索引的读写并发控制也是一个亟需克服的挑战。
+
+
+
+### 4.2.4 多模态检索
+
+@梦召？
+
+
+
+### 4.2.5 索引构建自动化
+
+如本书所归纳，向量索引的发展已经有很长的历史，期间诞生了几十上百种向量索引。时至今日，仍有多种索引在不同的评估指标、不同数据集上占据着优势地位。比如，图索引中的HNSW在查询性能上是表现最佳的索引之一，而LSH索引在处理超高维向量时有明显优势，树索引中的Dumpy在时间序列上有着更好的可伸缩性。
+
+对于用户而言，如何针对特定的数据集选择最合适的索引是非常困难的，而且在选择索引后，如何针对不同索引的特性选择构建参数，以及在运维过程中如何监测索引性能以进行调优则更加依赖对特定索引的研究知识。
+
+由于以上问题的存在，用户往往会选择一个“基本可靠”的索引（即性能优良，广泛使用，社区活跃，文档丰富）来使用。比如，目前大部分的向量数据库仅支持两种索引，树索引中的IVF-Flat和图索引中的HNSW。尽管这两种索引在大部分时候可以基本满足用户需求；然而，缺少对特定数据分布和应用场景的分析，可能会让用户承担更高的成本和不可靠的服务。换句话说，索引类型和索引构建参数的不合理选择会使得用户的硬件资源不能发挥出应有的价值。
+
+
+
+### 4.2.6 数据隐私与安全
+
+@剑楠？ 
+
+
+
+### 4.2.7 基于硬件的加速
 
 @田冰？  http://sites.computer.org/debull/A23sept/p22.pdf  P12 Research Challenge 1
+
+
+
+
+
+### 4.2.8 索引的理论保障与可靠性
+
+向量索引的一个额外问题是性能的方差较大。即，对于不同的查询，得到指定精度的需要的查询时间（或给定查询时间的查询精度）差异是很大的，这一点对于图索引来说尤其明显。
+
+在真实场景当中，用户往往需要处理不同难度的查询，这样的结果是会带来不可靠的服务质量。相比较而言，树索引有较为完备的理论保障和精确查询算法；LSH索引可以提供基于概率的精度保障；而基于图的索引和基于量化的索引对应的理论保障则与真实场景仍有较大偏差，这实际上增加了使用上的不可靠性。
+
+因此，从理论意义上讲，如何为图和量化索引建立理论模型，进一步提供理论保障仍然是一个需要解决的问题；从实践意义讲，如何设计一个性能方差较小且高效的向量索引，也是提升向量索引服务质量必须要解决的问题。
+
+
+
+### 4.2.9 请补充
+
+
 
 
 
