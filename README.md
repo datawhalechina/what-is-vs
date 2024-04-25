@@ -24,18 +24,18 @@
     - 为什么向量检索重要
     - 教程目标和读者指南
 - 第二部分：核心技术
-  - [向量化技术](./docs/chapter2/embedding.md)
+  - [2.1 向量化技术](./docs/chapter2/embedding.md)
     - 非结构化数据
     - 非结构化数据向量化
   - 向量索引
-    - [向量索引概述](./docs/chapter2/index.md)
+    - [2.2 向量索引概述](./docs/chapter2/index.md)
       - 概述
       - 评估技术
-    - [基于量化的向量索引方法](./docs/chapter2/pq-based-index.md)
-    - [基于哈希的向量索引方法](./docs/chapter2/hash-based-index.md)
-    - [基于树的向量索引方法](./docs/chapter2/tree-based-index.md)
-    - [基于图的向量索引方法](./docs/chapter2/graph-based-index.md)
-    - [基于混合的向量索引方法](./docs/chapter2/hybrid-index.md)
+    - [2.2.1 基于量化的向量索引方法](./docs/chapter2/pq-based-index.md)
+    - [2.2.2 基于哈希的向量索引方法](./docs/chapter2/hash-based-index.md)
+    - [2.2.3 基于树的向量索引方法](./docs/chapter2/tree-based-index.md)
+    - [2.2.4 基于图的向量索引方法](./docs/chapter2/graph-based-index.md)
+    - [2.2.5 基于混合的向量索引方法](./docs/chapter2/hybrid-index.md)
   - [向量查询方法](./docs/chapter2/hybrid-search.md)
     - 向量查询方法概述
     - k近邻查询
