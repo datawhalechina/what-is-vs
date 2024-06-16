@@ -2,6 +2,14 @@
 
 这里将以[《动手学深度学习》](https://zh.d2l.ai/)一书为例，演示如何基于[Ragas](https://docs.ragas.io/en/stable/)的RAG评价体系，框架选择为[`Langchain`](https://www.langchain.com/)。
 
+## Ragas 工作原理
+
+![ragas](./images/ragas.png)
+
+- Context Relevance: 衡量召回的 Context 能够支持 Query 的程度。如果该得分低，反映出了召回了太多与 Query 问题无关的内容，这些错误的召回知识会对 LLM 的最终回答造成一定影响。
+- Groundedness: 衡量 LLM 的 Response 遵从召回的 Context 的程度。如果该得分低，反映出了 LLM 的回答不遵从召回的知识，那么回答出现幻觉的可能就越大。
+- Answer Relevance: 衡量最终的 Response 回答对 Query 提问的相关度。如果该得分低，反映出了可能答不对题。
+
 ## 回答生成
 
 以下代码源自`evaluation.py`
