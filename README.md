@@ -61,9 +61,9 @@
     - 向量数据库的基本构成与工作原理
     - 市面主流向量数据库系统比较
   - [什么是RAG](./docs/chapter3/RAG.md)
-  - [基于RAG的知识问答系统实战](./docs/chapter3/practice.md)
-    - 基于Langchain的RAG基础实现
-    - 基于Ragas的RAG评价体系
+  - 基于RAG的知识问答系统实战
+    - [基于Langchain的RAG基础实现](./docs/chapter3/practice.md)
+    - [基于Ragas的RAG评价体系](./docs/chapter3/evaluation.md)
 - [第四部分：未来展望和挑战](./docs/chapter4/challenge.md)
 - [结语](./docs/chapter5/summary.md)
 
