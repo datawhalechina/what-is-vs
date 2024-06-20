@@ -21,22 +21,27 @@
 - 第一部分：引言
   - [引言](./docs/chapter1/introduction.md)
     - 什么是向量检索
-    - 为什么向量检索重要
-    - 教程目标和读者指南
+    - 向量检索的基本概念
+    - 向量检索为什么重要
+    - 向量检索的应用场景
+    - 关键词检索与向量检索的原理对比
+    - 本教程适合的人群
 - 第二部分：核心技术
-  - [向量化技术](./docs/chapter2/embedding.md)
-    - 非结构化数据
-    - 非结构化数据向量化
+  - [2.1 向量化技术](./docs/chapter2/embedding.md)
+    - Embedding 的定义
+    - 为什么需要 Embedding
+    - NLP 中经典的 Embedding 算法
+    - 大模型时代下的 Embedding 算法
   - 向量索引
-    - [向量索引概述](./docs/chapter2/index.md)
-      - 概述
-      - 评估技术
-    - [基于量化的向量索引方法](./docs/chapter2/pq-based-index.md)
-    - [基于哈希的向量索引方法](./docs/chapter2/hash-based-index.md)
-    - [基于树的向量索引方法](./docs/chapter2/tree-based-index.md)
-    - [基于图的向量索引方法](./docs/chapter2/graph-based-index.md)
-    - [基于混合的向量索引方法](./docs/chapter2/hybrid-index.md)
-  - [向量查询方法](./docs/chapter2/hybrid-search.md)
+    - [2.2 向量索引](./docs/chapter2/index.md)
+      - 向量索引
+      - 向量索引的评估指标
+    - [2.2.1 基于量化的向量索引方法](./docs/chapter2/2.2.1%20pq-based-index.md)
+    - [2.2.2 基于哈希的向量索引方法](./docs/chapter2/2.2.2%20hash-based-index.md)
+    - [2.2.3 基于树的向量索引方法](./docs/chapter2/2.2.3%20tree-based-index.md)
+    - [2.2.4 基于图的向量索引方法](./docs/chapter2/2.2.4%20graph-based-index.md)
+    - [2.2.5 基于混合的向量索引方法](./docs/chapter2/2.2.5%20hybrid-index.md)
+  - [向量查询](./docs/chapter2/2.3%20vector-query.md)
     - 向量查询方法概述
     - k近邻查询
     - 范围查询
@@ -44,9 +49,9 @@
     - 多向量查询
     - 其它查询
     - 查询优化
-  - [向量查询优化策略](./docs/chapter2/index-tuning.md)
-    - 算法层面
-    - 硬件层面
+  - [向量查询优化策略]
+    - [算法层面](./docs/chapter2/2.4.1%20algorithm.md)
+    - [硬件层面](./docs/chapter2/2.4.2%20hardware.md)
       - CPU 多核架构
       - GPU 架构
       - FPGA 架构
@@ -55,19 +60,12 @@
   - [向量数据库系统概述](./docs/chapter3/system.md)
     - 向量数据库的基本构成与工作原理
     - 市面主流向量数据库系统比较
-  - [基于RAG的知识问答系统实战](./docs/chapter3/practice.md)
-    - 基于Langchain的RAG基础实现
-    - 基于Ragas的RAG评价体系
-- 第四部分：未来展望和挑战
-  - [新兴技术趋势](./docs/chapter4/ternd.md)
-    - [神经网络与向量检索的结合](./docs/chapter4/NN-index.md)
-    - [DB4LLM](./docs/chapter4/DB4LLM.md)
-  - [面临的挑战](./docs/chapter4/challenge.md)
-    - 数据隐私和安全问题
-    - 行业发展趋势和未来应用场景
-- [结语](./docs/summary.md)
-  - 总结
-  - 附录：进一步阅读资源和工具列表
+  - [什么是RAG](./docs/chapter3/RAG.md)
+  - 基于RAG的知识问答系统实战
+    - [基于Langchain的RAG基础实现](./docs/chapter3/practice.md)
+    - [基于Ragas的RAG评价体系](./docs/chapter3/evaluation.md)
+- [第四部分：未来展望和挑战](./docs/chapter4/challenge.md)
+- [结语](./docs/chapter5/summary.md)
 
 ## 参与贡献
 
