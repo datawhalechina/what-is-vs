@@ -25,5 +25,90 @@ Google在2018年提出了BERT。BERT使用了Transformer模型，它可以捕获
 例如，我们来看"苹果"这个词。在"我喜欢吃苹果"这个句子中，"苹果"指的是一种水果。但是在"我在使用苹果电脑"这个句子中，"苹果"指的是一个电子产品品牌。  
 如果我们只看"苹果"这个词，我们无法确定它的具体含义。但是，如果我们同时看"苹果"前后的词，我们就可以准确地理解它的含义。这就是Bert的工作方式。当然，这类模型的训练复杂度是更高的，需要大量的训练资源。
 
-# 2.1.4 总结
+
+# 2.1.4 大模型时代下的Embedding模型
+在大模型时代下，需要新的Embedding模型来应对大规模数据处理、多模态任务以及复杂任务的需求。现有的Embedding模型虽然已经非常强大，但在面对更加复杂的场景时，仍然需要进一步的优化和创新。例如，多语言、多模态的却需求。
+
+# 2.1.4.1 多模态Embedding模型
+一个典型的多模态Embedding模型的例子是CLIP（Contrastive Language-Image Pretraining）。CLIP由OpenAI在2021年提出，其核心理念是通过图文对比学习预训练，将图像和文本进行关联，从而实现跨模态特征相似度计算、零样本图片分类等任务。CLIP通过对比学习的方法，使得图像中的“小狗”和文本中的“小狗”能够生成相似的Embedding向量，从而实现了模态对齐。
+CLIP模型在跨模态特征相似度计算方面的具体实现机制主要通过以下步骤设计：
+编码器转换：在训练阶段，CLIP使用大量的文本图像配对数据进行训练。通过编码器将图像和文本转换为特征向量。这些特征向量分别代表了图像和文本的高维表示。
+
+内积计算相似度：CLIP通过计算图像和文本特征向量的内积来衡量它们之间的相似度。这种方法使得模型能够在统一的向量空间中直接进行跨模态的特征相似度计算。
+
+对比学习预训练：CLIP的训练分为三个阶段，其中对比式预训练阶段使用图像-文本对进行对比学习，进一步优化模型的性能。
+
+规范化处理：为了减少偏差，CLIP在实际应用中会对编码后的特征向量进行规范化处理。
+
+```python
+import torch
+from transformers import CLIPProcessor, CLIPModel
+from PIL import Image
+import requests
+
+# 加载模型和处理器
+model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+
+# 准备图像和文本
+image_url = "https://example.com/dog.jpg"  
+image = Image.open(requests.get(image_url, stream=True).raw)
+texts = ["A photo of a dog", "A photo of a cat"]
+
+# 处理图像和文本
+inputs = processor(text=texts, images=image, return_tensors="pt", padding=True)
+
+# 获取图像和文本的嵌入向量
+outputs = model(**inputs)
+image_features = outputs.image_embeds
+text_features = outputs.text_embeds
+
+# 计算图像和文本特征向量的相似度
+logits_per_image = outputs.logits_per_image # 图像与文本之间的相似度
+logits_per_text = outputs.logits_per_text   # 文本与图像之间的相似度
+
+# 输出相似度
+print(logits_per_image)
+print(logits_per_text)
+
+```
+
+# 2.1.4.2 多语言Embedding模型
+多语言表征模型的应用场景比较广泛。Microsoft的E5多语言嵌入模型。该模型在零样本和多语言设置中具有最先进的性能，并且可以在Elasticsearch中使用来进行多语言向量搜索。此外，OpenAI也发布了新一代的多语言嵌入模型embedding v3，这些模型分为较小的text-embeddings-3-small和较大且功能更强大的text-embeddings-3-large，具有更高的多语言性能。这些模型能够处理多种语言的文本，并在实际应用中提供高质量的向量表示。
+
+OpenAI发布的多语言嵌入模型v3与前一版本相比有以下改进：
+
+更高的多语言性能：v3版本的嵌入模型被描述为性能最好的嵌入模型，具有更高的多语言性能。
+
+模型分类：v3版本的嵌入模型分为两类，分别是较小且高效的text-embedding-3-small模型和更大且功能更强大的text-embedding-3-large模型。
+
+使用MRL技术：在v3嵌入API中，默认使用MRL（粗粒度到细粒度的检索）技术用于检索和RAG（检索增强生成），这使得模型在处理复杂任务时更加高效和灵活。
+
+```python
+import openai
+
+# 设置API密钥
+openai.api_key = "your-api-key"  
+
+# 文本列表（不同语言）
+texts = [
+    "This is an English sentence.",
+    "这是一个中文句子。",
+    "C'est une phrase en français."
+]
+
+# 获取嵌入向量
+response = openai.Embedding.create(
+  model="text-embedding-3-large",
+  input=texts
+)
+
+# 输出嵌入向量
+for i, embedding in enumerate(response['data']):
+    print(f"Text: {texts[i]}")
+    print(f"Embedding: {embedding['embedding']}\n")
+```
+
+# 2.1.5 总结
 总的来说，Embedding技术是AI的基石技术，甚至可以说Embedding技术的发展对AI的能力表现起到决定作用。在本章中，我们按照时间顺序介绍了几种经典的算法。这些算法虽然表征的方法不同，但它们的基础是概率和统计学，都试图从大量的文本数据中学习词的语义。这些方法为我们提供了处理和理解自然语言的强大工具，它们在许多NLP任务中，如文本分类、情感分析、命名实体识别等，都发挥了关键作用。
+
