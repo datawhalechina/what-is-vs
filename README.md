@@ -49,13 +49,18 @@
     - 多向量查询
     - 其它查询
     - 查询优化
-  - [向量查询优化策略]
-    - [算法层面](./docs/chapter2/2.4.1%20algorithm.md)
+  - [向量检索软硬协同优化](./docs/chapter2/2.4%20hw-sw-codesign.md)
+    - [CPU 优化策略](./docs/chapter2/2.4.1%20CPU.md)
+    - [GPU 优化策略](./docs/chapter2/2.4.2%20GPU.md)
+    - [FPGA 架构与向量检索](./docs/chapter2/2.4.3%20FPGA.md)
+    - [近数据处理架构](./docs/chapter2/2.4.4%20Near-Storage-Processing.md)
+    - [分布式向量检索](./docs/chapter2/2.4.5%20Distributed.md)
+    <!-- - [算法层面](./docs/chapter2/2.4.1%20algorithm.md)
     - [硬件层面](./docs/chapter2/2.4.2%20hardware.md)
       - CPU 多核架构
       - GPU 架构
       - FPGA 架构
-      - 近数据处理架构
+      - 近数据处理架构 -->
 - 第三部分：系统实现与应用
   - [向量数据库系统概述](./docs/chapter3/system.md)
     - 向量数据库的基本构成与工作原理
@@ -76,15 +81,15 @@
 
 ## 贡献者名单
 
-| 姓名 | 职责 | 简介 |
-| :----| :---- | :---- |
-| [苏鹏](https://github.com/SuperSupeng) | 项目负责人 | Datawhale成员 |
-| [李剑楠](https://github.com/ljn-aaa) | 项目主要贡献者 | 华东师范大学硕士 |
-| [向隆](https://github.com/BenjaminXiang) | 项目主要贡献者 | 南方科技大学博士 |
-| [王泽宇](https://github.com/CaucherWang) | 项目主要贡献者 | 复旦大学博士 |
-| [王梦召](https://github.com/whenever5225) | 项目主要贡献者 | 浙江大学博士 |
-| [田冰](https://github.com/tianbing111) | 项目主要贡献者 | 华中科技大学博士 |
-| [韩颐堃](https://github.com/YikunHan42) | 项目主要贡献者 |  |
+| 姓名                                      | 职责           | 简介             |
+| :---------------------------------------- | :------------- | :--------------- |
+| [苏鹏](https://github.com/SuperSupeng)    | 项目负责人     | Datawhale成员    |
+| [李剑楠](https://github.com/ljn-aaa)      | 项目主要贡献者 | 华东师范大学硕士 |
+| [向隆](https://github.com/BenjaminXiang)  | 项目主要贡献者 | 南方科技大学博士 |
+| [王泽宇](https://github.com/CaucherWang)  | 项目主要贡献者 | 复旦大学博士     |
+| [王梦召](https://github.com/whenever5225) | 项目主要贡献者 | 浙江大学博士     |
+| [田冰](https://github.com/tianbing111)    | 项目主要贡献者 | 华中科技大学博士 |
+| [韩颐堃](https://github.com/YikunHan42)   | 项目主要贡献者 |                  |
 
 分工请见：[立项申请（what-is-vs #184）](https://github.com/datawhalechina/DOPMC/issues/184)
 
